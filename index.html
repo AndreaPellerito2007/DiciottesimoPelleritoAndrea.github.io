@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="it">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🎂 Festa di Compleanno! 🎉</title>
@@ -24,31 +25,31 @@
       siPartecipazione.onclick = checkPartecipazione;
       noPartecipazione.onclick = checkPartecipazione;
     }
+
     document.addEventListener("DOMContentLoaded", function () {
-    const confettiContainer = document.querySelector(".confetti-container");
+      const confettiContainer = document.querySelector(".confetti-container");
 
-    function createConfetti() {
+      function createConfetti() {
         for (let i = 0; i < 50; i++) { 
-            let confetti = document.createElement("div");
-            confetti.classList.add("confetti");
+          let confetti = document.createElement("div");
+          confetti.classList.add("confetti");
 
-           
-            confetti.style.left = Math.random() * 100 + "vw";
-            let width = Math.random() * 15 + 5;
-            let height = width / 2; 
-            confetti.style.width = width + "px";
-            confetti.style.height = height + "px";
-            let colors = ["red", "yellow", "green", "blue", "orange", "purple", "cyan", "pink"];
-            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            let duration = Math.random() * 2 + 1;
-            confetti.style.animationDuration = duration + "s";
+          confetti.style.left = Math.random() * 100 + "vw";
+          let width = Math.random() * 15 + 5;
+          let height = width / 2; 
+          confetti.style.width = width + "px";
+          confetti.style.height = height + "px";
+          let colors = ["red", "yellow", "green", "blue", "orange", "purple", "cyan", "pink"];
+          confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+          let duration = Math.random() * 2 + 1;
+          confetti.style.animationDuration = duration + "s";
 
-            confettiContainer.appendChild(confetti);
+          confettiContainer.appendChild(confetti);
         }
-    }
+      }
 
-    createConfetti();
-});
+      createConfetti();
+    });
   </script>
 </head>
 <body>
@@ -57,7 +58,7 @@
     <h1 class="titolo">🎈Sei invitato alla mia festa di compleanno! 🎂</h1>
     <p class="sottotitolo">Conferma la tua presenza compilando il modulo.</p>
 
-    <form action="process_form.php" method="post" class="form">
+    <form action="https://formspree.io/f/mpwqnazq" method="post" class="form">
       <label>Nome:</label>
       <input type="text" name="nome" required>
 
@@ -70,7 +71,7 @@
         <input type="radio" id="no" name="partecipazione" value="no"> <label for="no">Purtroppo no 🏳️‍🌈🦽</label>
       </div>
 
-      <div id="telefono_div">
+      <div id="telefono_div" style="display:none;">
         <label>Telefono:</label>
         <input type="tel" id="telefono" name="telefono">
       </div>
