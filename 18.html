@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎂 Festa di Compleanno! 🎉</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <script>
+    function checkPartecipazione() {
+      var siPartecipazione = document.getElementById('si');
+      var telefonoDiv = document.getElementById('telefono_div');
+      var telefonoField = document.getElementById('telefono');
+
+      if (siPartecipazione.checked) {
+        telefonoDiv.style.display = 'block';
+        telefonoField.required = true;
+      } else {
+        telefonoDiv.style.display = 'none';
+        telefonoField.required = false;
+      }
+    }
+
+    window.onload = function() {
+      var siPartecipazione = document.getElementById('si');
+      var noPartecipazione = document.getElementById('no');
+      siPartecipazione.onclick = checkPartecipazione;
+      noPartecipazione.onclick = checkPartecipazione;
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+    const confettiContainer = document.querySelector(".confetti-container");
+
+    function createConfetti() {
+        for (let i = 0; i < 50; i++) { 
+            let confetti = document.createElement("div");
+            confetti.classList.add("confetti");
+
+           
+            confetti.style.left = Math.random() * 100 + "vw";
+            let width = Math.random() * 15 + 5;
+            let height = width / 2; 
+            confetti.style.width = width + "px";
+            confetti.style.height = height + "px";
+            let colors = ["red", "yellow", "green", "blue", "orange", "purple", "cyan", "pink"];
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            let duration = Math.random() * 2 + 1;
+            confetti.style.animationDuration = duration + "s";
+
+            confettiContainer.appendChild(confetti);
+        }
+    }
+
+    createConfetti();
+});
+  </script>
+</head>
+<body>
+  <div class="confetti-container"></div> 
+  <div class="container">
+    <h1 class="titolo">🎈Sei invitato alla mia festa di compleanno! 🎂</h1>
+    <p class="sottotitolo">Conferma la tua presenza compilando il modulo.</p>
+
+    <form action="process_form.php" method="post" class="form">
+      <label>Nome:</label>
+      <input type="text" name="nome" required>
+
+      <label>Cognome:</label>
+      <input type="text" name="cognome" required>
+
+      <label>Parteciperai?</label>
+      <div class="radio-group">
+        <input type="radio" id="si" name="partecipazione" value="si"> <label for="si">Sì, ci sarò! 🎊</label>
+        <input type="radio" id="no" name="partecipazione" value="no"> <label for="no">Purtroppo no 🏳️‍🌈🦽</label>
+      </div>
+
+      <div id="telefono_div">
+        <label>Telefono:</label>
+        <input type="tel" id="telefono" name="telefono">
+      </div>
+
+      <input type="submit" value="Conferma 🎉" class="button">
+    </form>
+  </div>
+</body>
+</html>

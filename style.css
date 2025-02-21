@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(90deg, rgba(0, 140, 255, 1) 0%, rgba(120, 64, 139, 1) 25%, rgb(250, 3, 77) 57%, rgb(226, 1, 1) 89%, rgb(81, 27, 27) 100%);
+    text-align: center;
+    padding: 50px;
+    color: rgb(0, 0, 0);
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    animation: slideIn 1s ease-out;
+    max-width: 600px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.titolo {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.sottotitolo {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+input {
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.radio-group {
+    display: flex;
+    gap: 10px;
+    margin: 20px;
+}
+
+#telefono_div {
+    display: none;
+}
+
+.button {
+    font-weight: bold;
+    background: linear-gradient(90deg, rgba(0, 140, 255, 1) 0%, rgba(120, 64, 139, 1) 25%, rgb(250, 3, 77) 57%, rgb(226, 1, 1) 89%, rgb(81, 27, 27) 100%);
+    color: rgb(0, 0, 0);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
+
+.confetti {
+    position: absolute;
+    opacity: 0.8;
+    animation: confetti-fall linear infinite;
+}
