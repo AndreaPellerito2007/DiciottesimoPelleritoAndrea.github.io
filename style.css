@@ -77,6 +77,10 @@ input {
     transition: background 0.3s ease-in-out;
 }
 
+.button:hover {
+    background: rgba(0, 140, 255, 0.8);
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -118,4 +122,43 @@ input {
     position: absolute;
     opacity: 0.8;
     animation: confetti-fall linear infinite;
+}
+
+/* Media Queries per Responsività */
+@media (max-width: 768px) {
+    .titolo {
+        font-size: 24px;
+    }
+    
+    .sottotitolo {
+        font-size: 16px;
+    }
+    
+    input {
+        width: 90%;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .titolo {
+        font-size: 20px;
+    }
+    
+    .sottotitolo {
+        font-size: 14px;
+    }
+
+    input {
+        width: 100%;
+    }
+    
+    .button {
+        font-size: 14px;
+        padding: 10px;
+    }
 }
