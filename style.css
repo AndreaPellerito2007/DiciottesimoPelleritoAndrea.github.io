@@ -124,7 +124,6 @@ input {
     animation: confetti-fall linear infinite;
 }
 
-/* Media Queries per Responsività */
 @media (max-width: 768px) {
     .titolo {
         font-size: 24px;
