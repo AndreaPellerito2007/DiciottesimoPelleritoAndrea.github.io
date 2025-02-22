@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grazie per aver risposto</title>
+  <link href="style2.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const confettiContainer = document.querySelector(".confetti-container");
+
+      function createConfetti() {
+        for (let i = 0; i < 50; i++) {
+          let confetti = document.createElement("div");
+          confetti.classList.add("confetti");
+
+          confetti.style.left = Math.random() * 100 + "vw";
+          let size = Math.random() * 30 + 10;
+          confetti.style.fontSize = size + "px";
+          let emojis = ["🏳️‍🌈"];
+          confetti.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+          let duration = Math.random() * 5 + 4;
+          confetti.style.animationDuration = duration + "s";
+
+          confettiContainer.appendChild(confetti);
+        }
+      }
+
+      createConfetti();
+    });
+  </script>
+
+  <div class="confetti-container"></div> 
+  <div class="container">
+    <h1 class="titolo">🏳️‍🌈Grazie per aver risposto🏳️‍🌈</h1>
+    <p class="sottotitolo">Sono felice che non hai accettato l'invito,statti a casa</p>
+  </div>
+</body>
+</html>

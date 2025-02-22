@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(90deg, rgba(0, 140, 255, 1) 0%, rgba(120, 64, 139, 1) 25%, rgb(250, 3, 77) 57%, rgb(226, 1, 1) 89%, rgb(81, 27, 27) 100%);
+    text-align: center;
+    padding: 50px;
+    color: rgb(0, 0, 0);
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    animation: slideIn 1s ease-out;
+    max-width: 600px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.titolo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.sottotitolo {
+    font-size: 24px;
+}
+.sottotitolo2{
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Twemoji', sans-serif;
+}
+a{
+    color:rgb(255, 255, 255);
+    font-size: 28px;
+    margin: 30px;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
+
+.confetti {
+    position: absolute;
+    opacity: 0.8;
+    animation: confetti-fall linear infinite;
+}
+
+@media (max-width: 768px) {
+    .titolo {
+        font-size: 24px;
+    }
+    
+    .sottotitolo {
+        font-size: 16px;
+    }
+    
+    input {
+        width: 90%;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .titolo {
+        font-size: 20px;
+    }
+    
+    .sottotitolo {
+        font-size: 14px;
+    }
+
+    input {
+        width: 100%;
+    }
+    
+    .button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grazie per aver accettato l'invito 🎉</title>
+  <link href="style2.css" rel="stylesheet" type="text/css">
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const confettiContainer = document.querySelector(".confetti-container");
+
+      function createConfetti() {
+        for (let i = 0; i < 50; i++) { 
+          let confetti = document.createElement("div");
+          confetti.classList.add("confetti");
+
+          confetti.style.left = Math.random() * 100 + "vw";
+          let width = Math.random() * 15 + 5;
+          let height = width / 2; 
+          confetti.style.width = width + "px";
+          confetti.style.height = height + "px";
+          let colors = ["red", "yellow", "green", "blue", "orange", "purple", "cyan", "pink"];
+          confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+          let duration = Math.random() * 2 + 1;
+          confetti.style.animationDuration = duration + "s";
+
+          confettiContainer.appendChild(confetti);
+        }
+      }
+
+      createConfetti();
+    });
+  </script>
+</head>
+<body>
+  <div class="confetti-container"></div> 
+  <div class="container">
+    <h1 class="titolo">🎈Grazie per aver accettato l'invito 🎂</h1>
+    <p class="sottotitolo">Il compleanno avrà luogo il 2 giugno a <br>
+      <a href="https://www.bing.com/maps?&ty=0&rtp=~pos.38.164455_13.228514__Casale%20Torre%20Isabella__e_&mode=m&u=1&tt=Indicazioni&tsts0=%2526ty%253D0%2526rtp%253D~pos.38.164455_13.228514__Casale%252520Torre%252520Isabella__e_%2526mode%253Dm%2526u%253D1&tstt0=Indicazioni&cp=38.164439~13.21661&lvl=14.5&pi=0&ftst=0&ftics=False&v=2&sV=2&form=S00027">Torre Isabella</a>
+      <br>per le 20:00</p><br>
+    <p class="sottotitolo2">&#8505; Come regali si accettano solo accessori per la moto/protezioni o soldi😁</p>
+  </div>
+</body>
+</html>
