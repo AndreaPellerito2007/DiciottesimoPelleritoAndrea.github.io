@@ -6,158 +6,198 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(90deg, rgba(0, 140, 255, 1) 0%, rgba(120, 64, 139, 1) 25%, rgb(250, 3, 77) 57%, rgb(226, 1, 1) 89%, rgb(81, 27, 27) 100%);
+    background: linear-gradient(90deg, rgba(255,0,204,1) 5%, rgba(130,0,255,1) 25%, rgba(16,111,237,1) 50%, rgba(1,185,213,1) 75%, rgba(12,226,154,1) 100%);
     text-align: center;
-    padding: 50px;
+    padding: 20px;
     color: rgb(0, 0, 0);
     overflow: hidden;
-    animation: fadeIn 1s ease-in-out;
+    animation: waveBackground 3s ease-in-out forwards;
+    width: 100%;
 }
 
 .container {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.7);
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
     display: inline-block;
-    animation: slideIn 1s ease-out;
+    width: 100%;
     max-width: 600px;
-    width: 90%;
     margin: 0 auto;
+    animation: waveIn 1.5s ease-in-out;
 }
 
 .titolo {
-    font-size: 30px;
+    font-size: 36px;
     font-weight: bold;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.9);
+    animation: glow 1.5s infinite alternate;
 }
 
 .sottotitolo {
-    font-size: 18px;
+    font-size: 22px;
     margin-bottom: 20px;
+    animation: waveIn 1.5s ease-in-out;
 }
 
-.form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-label {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-input {
+input, button {
     padding: 10px;
-    margin: 8px 0;
+    margin: 12px 0;
     border: none;
     border-radius: 5px;
     width: 80%;
+    max-width: 400px;
+    animation: waveIn 1.5s ease-in-out;
 }
 
 .radio-group {
     display: flex;
-    gap: 10px;
-    margin: 20px;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
 }
 
-#telefono_div {
-    display: none;
+.radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+}
+
+.radio-label input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.radio-label span {
+    position: relative;
+    padding-left: 40px;
+}
+
+.radio-label span::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid red;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.radio-label:hover span::before {
+    border-color: blue;
+    transform: scale(1.1);
+}
+
+.radio-label input[type="radio"]:checked + span::before {
+    border-color: green;
+    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.7);
 }
 
 .button {
     font-weight: bold;
-    background: linear-gradient(90deg, rgba(0, 140, 255, 1) 0%, rgba(120, 64, 139, 1) 25%, rgb(250, 3, 77) 57%, rgb(226, 1, 1) 89%, rgb(81, 27, 27) 100%);
-    color: rgb(0, 0, 0);
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
+    background: linear-gradient(90deg, rgba(255,0,204,1) 5%, rgba(130,0,255,1) 25%, rgba(16,111,237,1) 50%, rgba(1,185,213,1) 75%, rgba(12,226,154,1) 100%);
+    color: white;
     cursor: pointer;
     font-size: 16px;
-    transition: background 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    margin-top: 20px;
+    padding: 12px 30px;
+    border-radius: 25px;
 }
 
 .button:hover {
-    background: rgba(0, 140, 255, 0.8);
+    transform: scale(1.1);
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.button:active {
+    background: rgba(255, 0, 204, 0.8);
+    transform: scale(0.95);
 }
 
-@keyframes slideIn {
-    from {
-        transform: translateY(-20px);
-    }
-    to {
-        transform: translateY(0);
-    }
+@keyframes waveBackground {
+    0% { background-position: 100% 0%; opacity: 0; }
+    50% { background-position: 50% 50%; opacity: 0.5; }
+    100% { background-position: 0% 100%; opacity: 1; }
 }
 
-.confetti-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
+@keyframes waveIn {
+    0% { transform: translateY(30px) scale(0.9); opacity: 0; }
+    50% { transform: translateY(-10px) scale(1.02); opacity: 0.8; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-@keyframes confetti-fall {
-    0% {
-        transform: translateY(-100vh) rotate(0deg);
+@keyframes glow {
+    from { text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5); }
+    to { text-shadow: 0px 0px 20px rgba(255, 255, 255, 1); }
+}
+
+/* Media Query per tablet */
+@media screen and (max-width: 1024px) {
+    body {
+        padding: 10vw;
     }
-    100% {
-        transform: translateY(100vh) rotate(720deg);
+
+    .container {
+        padding: 8vw;
     }
-}
 
-.confetti {
-    position: absolute;
-    opacity: 0.8;
-    animation: confetti-fall linear infinite;
-}
-
-@media (max-width: 768px) {
     .titolo {
-        font-size: 24px;
+        font-size: 8vw;
     }
-    
+
     .sottotitolo {
-        font-size: 16px;
+        font-size: 5vw;
     }
-    
-    input {
-        width: 90%;
-    }
-    
+
     .radio-group {
         flex-direction: column;
-        align-items: center;
+        gap: 8vw;
+    }
+
+    .button {
+        font-size: 4vw;
+        padding: 4vw 10vw;
     }
 }
 
-@media (max-width: 480px) {
+/* Media Query per smartphone */
+@media screen and (max-width: 480px) { 
     .titolo {
-        font-size: 20px;
+        font-size: 20px; 
     }
     
-    .sottotitolo {
-        font-size: 14px;
+    body {
+        padding: 5vw; /* Ridotto per dare più spazio */
     }
 
-    input {
-        width: 100%;
+    .container {
+        padding: 10vw; /* Ridotto per mantenere la forma */
+        width: 90%;
+        max-width: none; /* Rimuovi il limite massimo di larghezza */
     }
-    
+
+    .titolo {
+        font-size: 12vw; /* Ridotto per la visualizzazione mobile */
+    }
+
+    .sottotitolo {
+        font-size: 7vw; /* Ridotto per la visualizzazione mobile */
+    }
+
+    .radio-group {
+        gap: 8vw;
+    }
+
     .button {
-        font-size: 14px;
-        padding: 10px;
+        font-size: 5vw;
+        padding: 8vw 15vw; /* Spaziatura e dimensione del bottone su mobile */
     }
 }
