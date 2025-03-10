@@ -9,7 +9,6 @@
       var siPartecipazione = document.getElementById('si');
       var telefonoDiv = document.getElementById('telefono_div');
       var telefonoField = document.getElementById('telefono');
-
       if (siPartecipazione.checked) {
         telefonoDiv.style.display = 'block';
         telefonoField.required = true;
@@ -25,99 +24,37 @@
       siPartecipazione.onclick = checkPartecipazione;
       noPartecipazione.onclick = checkPartecipazione;
     }
-
-    document.addEventListener("DOMContentLoaded", function () {
-      const confettiContainer = document.querySelector(".confetti-container");
-
-      function createConfetti() {
-        for (let i = 0; i < 50; i++) { 
-          let confetti = document.createElement("div");
-          confetti.classList.add("confetti");
-
-          confetti.style.left = Math.random() * 100 + "vw";
-          let width = Math.random() * 15 + 5;
-          let height = width / 2; 
-          confetti.style.width = width + "px";
-          confetti.style.height = height + "px";
-          let colors = ["red", "yellow", "green", "blue", "orange", "purple", "cyan", "pink"];
-          confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-          let duration = Math.random() * 2 + 1;
-          confetti.style.animationDuration = duration + "s";
-
-          confettiContainer.appendChild(confetti);
-        }
-      }
-
-      createConfetti();
-    });
   </script>
 </head>
 <body>
   <div class="confetti-container"></div> 
-  <div class="container">
-    <h1 class="titolo">🎈Sei invitato alla mia festa di compleanno! 🎂</h1>
-    <p class="sottotitolo">Conferma la tua presenza compilando il modulo.</p>
-
+  <div class="container animate-pop">
+    <h1 class="titolo animate-glow">🎈 Sei invitato alla mia festa di compleanno! 🎂</h1>
+    <p class="sottotitolo animate-slide-in">Conferma la tua presenza compilando il modulo.</p>
     <form id="my-form" action="https://formspree.io/f/mpwqnazq" method="POST">
       <label>Nome:</label>
-      <input type="text" name="nome" required>
-
+      <input type="text" name="nome" required class="animate-input"><br>
       <label>Cognome:</label>
-      <input type="text" name="cognome" required>
-
+      <input type="text" name="cognome" required class="animate-input">
       <label>Parteciperai?</label>
       <div class="radio-group">
-        <input type="radio" id="si" name="partecipazione" value="si" required> <label for="si">Sì, ci sarò! 🎊</label>
-        <input type="radio" id="no" name="partecipazione" value="no" required> <label for="no">Purtroppo no 🏳️‍🌈🦽</label>
-      </div>
-
-      <div id="telefono_div" style="display:none;">
+        <label class="radio-label">
+            <input type="radio" id="si" name="partecipazione" value="si" required>
+            <span>🎊 Sì, ci sarò!</span>
+        </label>
+        <label class="radio-label">
+            <input type="radio" id="no" name="partecipazione" value="no" required>
+            <span>Purtroppo no (meglio)</span>
+        </label>
+    </div>
+    
+      <div id="telefono_div" class="animate-fade-in" style="display:none;">
         <label>Telefono:</label>
         <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}" placeholder="Es. 3331234567">
       </div>
-      <button id="my-form-button" class="button">Conferma 🎉</button>
+      <button id="my-form-button" class="button animate-button">✨ Conferma 🎉</button>
       <p id="my-form-status"></p>
     </form>
   </div>
-  <script>
-    var form = document.getElementById("my-form");
-    
-    async function handleSubmit(event) {
-      event.preventDefault();
-      var status = document.getElementById("my-form-status");
-      var data = new FormData(event.target);
-      fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {
-            'Accept': 'application/json'
-        }
-      }).then(response => {
-        console.log(response.ok);
-        if (response.ok) {
-    var partecipazione = data.get('partecipazione'); 
-    if (partecipazione === 'si') {
-        window.location.href = "index2.html"; 
-    } else {
-        window.location.href = "index3.html"; 
-    }
-    alert("Modulo inviato con successo!");
-    status.innerHTML = "Thanks for your submission!";
-    form.reset();
-  } else {
-          response.json().then(data => {
-            if (Object.hasOwn(data, 'errors')) {
-              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-            } else {
-              status.innerHTML = "Oops! There was a problem submitting your form"
-            }
-          })
-        }
-      }).catch(error => {
-        status.innerHTML = "Oops! There was a problem submitting your form"
-      });
-    }
-    form.addEventListener("submit", handleSubmit)
-  </script>
 </body>
 </html>
