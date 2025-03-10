@@ -6,16 +6,16 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(90deg, rgba(0, 140, 255, 1) 0%, rgba(120, 64, 139, 1) 25%, rgb(250, 3, 77) 57%, rgb(226, 1, 1) 89%, rgb(81, 27, 27) 100%);
+    background: linear-gradient(90deg, rgba(255,0,204,1) 5%, rgba(130,0,255,1) 25%, rgba(16,111,237,1) 50%, rgba(1,185,213,1) 75%, rgba(12,226,154,1) 100%);
     text-align: center;
     padding: 50px;
     color: rgb(0, 0, 0);
-    overflow: hidden;
+    overflow-x: hidden;
     animation: fadeIn 1s ease-in-out;
 }
 
 .container {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.477);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -27,39 +27,61 @@ body {
 }
 
 .titolo {
-    font-size: 22px;
+    font-size: 28px;
     font-weight: bold;
 }
 
 .sottotitolo {
-    font-size: 24px;
+    font-size: 20px;
 }
-.sottotitolo2{
+
+.sottotitolo2 {
     font-size: 16px;
     font-weight: bold;
     font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Twemoji', sans-serif;
 }
-a{
-    color:rgb(255, 255, 255);
-    font-size: 28px;
+
+a {
+    color: rgb(255, 255, 255);
+    font-size: 24px;
     margin: 30px;
 }
+
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes slideIn {
-    from {
-        transform: translateY(-20px);
-    }
-    to {
-        transform: translateY(0);
-    }
+    from { transform: translateY(-20px); }
+    to { transform: translateY(0); }
+}
+
+.moto {
+    position: absolute;
+    white-space: nowrap;
+    width: auto;
+    height: 500px;
+    animation: motoMoveReverse 8s linear forwards;
+    rotate: 10deg;
+}
+
+.biglietto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+@keyframes motoMoveReverse {
+    0% { left: 100vw; } 
+    100% { left: -800px; } 
 }
 
 .confetti-container {
@@ -73,12 +95,8 @@ a{
 }
 
 @keyframes confetti-fall {
-    0% {
-        transform: translateY(-100vh) rotate(0deg);
-    }
-    100% {
-        transform: translateY(100vh) rotate(720deg);
-    }
+    0% { transform: translateY(-100vh) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(720deg); }
 }
 
 .confetti {
@@ -87,40 +105,39 @@ a{
     animation: confetti-fall linear infinite;
 }
 
-@media (max-width: 768px) {
-    .titolo {
-        font-size: 24px;
+/* Migliore responsività per tablet */
+@media (max-width: 1024px) {
+    .container {
+        width: 80%;
+        padding: 15px;
     }
-    
-    .sottotitolo {
-        font-size: 16px;
-    }
-    
-    input {
-        width: 90%;
-    }
-    
-    .radio-group {
-        flex-direction: column;
-        align-items: center;
-    }
+    .titolo { font-size: 24px; }
+    .sottotitolo { font-size: 18px; }
 }
 
-@media (max-width: 480px) {
-    .titolo {
-        font-size: 20px;
+/* Migliore responsività per smartphone */
+@media (max-width: 768px) {
+    body {
+        padding: 30px;
     }
-    
-    .sottotitolo {
-        font-size: 14px;
+    .container {
+        width: 95%;
+        padding: 15px;
     }
+    .titolo { font-size: 22px; }
+    .sottotitolo { font-size: 16px; }
+    a { font-size: 20px; }
+    .moto { height: 300px; }
+}
 
-    input {
-        width: 100%;
+/* Migliore responsività per schermi molto piccoli */
+@media (max-width: 480px) {
+    body {
+        padding: 20px;
     }
-    
-    .button {
-        font-size: 14px;
-        padding: 10px;
-    }
+    .titolo { font-size: 20px; }
+    .sottotitolo { font-size: 14px; }
+    a { font-size: 18px; }
+    .button { font-size: 14px; padding: 8px; }
+    .moto { height: 250px; }
 }
